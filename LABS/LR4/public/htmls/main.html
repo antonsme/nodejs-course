@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>main-page</h1>
+
+
+
+    <button id="get">GET</button>
+    <button id="post">POST</button>
+    <button id="put">PUT</button>
+    <button id="delete">DELETE</button>
+
+    <script>
+        document.getElementById("get").addEventListener("click", () => {
+            sendGetRes()
+            alert("is sended")
+        })
+
+        document.getElementById("post").addEventListener("click", () => {
+            sendPostRes()
+            alert("is sended")
+        })
+        document.getElementById("delete").addEventListener("click", () => {
+            sendDeleteRes()
+            alert("is sended")
+        })
+
+
+        const sendGetRes = async () => {
+            const response = await fetch("http://localhost:3500/api/db")
+            return await response.json()
+        }
+        const sendPostRes = async () => {
+            const data = {
+                id: 13,
+                name: "leha",
+                bday: "14"
+            }
+            const response = await fetch("http://localhost:3500/api/db", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+        }
+        const sendDeleteRes = async () => {
+            const response = await fetch("http://localhost:3500/api/db?id=0", {
+                method: "DELETE",
+            })
+        }
+        const sendPutRes = async () => {
+            const data = {
+                id: 13,
+                name: "leha",
+                bday: "14"
+            }
+            const response = await fetch("http://localhost:3500/api/db?id=0", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+        }
+
+    </script>
+
+
+</body>
+
+
+</html>
