@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "my-added-pocket": "^1.0.0",
+    "nodemailer": "^6.9.14",
+    "nodemailer-smtp-transport": "^2.7.4",
+    "sendmail": "^1.6.1"
+  },
+  "name": "my-added-pocket",
+  "version": "1.0.0",
+  "main": "myAddedPocket.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "glava_kolhoza_prime",
+  "license": "ISC",
+  "description": ""
+}

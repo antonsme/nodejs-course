@@ -1,0 +1,12 @@
+1) PS C:\Users\anton\Desktop\LR6\src> npm list
+└── (empty)
+
+2)PS C:\Users\anton\Desktop\LR6\src> npm install sendmail
+npm WARN deprecated buildmail@3.10.0: This project is unmaintained
+npm WARN deprecated mailcomposer@3.12.0: This project is unmaintained
+
+added 15 packages in 2s
+
+3)PS C:\Users\anton\Desktop\LR6\src> npm list
+src@ C:\Users\anton\Desktop\LR6\src
+└── sendmail@1.6.1
