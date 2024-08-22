@@ -26,7 +26,7 @@ send = (message) => {
         to: 'recipient@example.com',
         subject: 'Тема сообщения',
         text: { message },
-        html: '<b>HTML-содержимое сообщения</b>'
+        html: `<h1>${message}</h1>`
     }
 
     transporter.sendMail(multiOptions, (error, info) => {
