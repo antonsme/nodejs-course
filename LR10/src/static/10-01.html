@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>10-01</h1>
+
+
+    <script>
+        let k = 0
+        const sendWs = () => {
+            const socket = new WebSocket("ws:/localhost:4000/wsserver")
+            socket.onopen = () => {
+                console.log("socket is open")
+                socket.send("hahahahahahha")
+            }
+
+            socket.onclose = (e) => {
+                console.log("ws server is  close", e)
+            }
+
+            socket.onmessage = (e) => {
+                console.log(e.data)
+            }
+
+            socket.onerror = (err) => {
+                console.log(`error : ${err}`)
+            }
+
+        }
+    </script>
+
+    <button onclick=sendWs()>send WS</button>
+
+</body>
+
+</html>
