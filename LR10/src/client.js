@@ -1,15 +1,26 @@
 const WebSocket = require("ws")
 
-
+let k = 0
 const ws = new WebSocket("ws:/localhost:4000/wsserver")
 
 ws.on("open", () => {
-    ws.send("hello from client.js")
+    console.log("socket is open")
+    const interval = setInterval(() => {
+        k++
+        ws.send(k)
+    }, 3000)
+
+    setTimeout(() => {
+        clearInterval(interval);
+        ws.close();
+    }, 25000);
 })
 
 
+
+
 ws.on("message", message => {
-    console.log(`your message from server : ${message}`)
+    console.log(`10-02-client: ${message}`)
 })
 
 
