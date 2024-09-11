@@ -1,7 +1,6 @@
-const send = require("./myAddedPocket/myAddedPocket")
+const sendPacket = require("my-added-pocket");
+const send = require("./myAddedPocket/myAddedPocket");
+//Порядок импортов!
 // send("hello")
 
-
-const sendPacket = require("my-added-pocket")
-
-sendPacket("hello")
+sendPacket("hello");
