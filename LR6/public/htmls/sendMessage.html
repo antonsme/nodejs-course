@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="" />
+  </head>
+
+  <body>
+    <form action="/submit" method="POST">
+      <label for="email1">от кого:</label>
+      <input type="email" id="email1" name="from" required />
+      <label for="email2">кому:</label>
+      <input type="email" id="email2" name="to" required />
+      <label for="theme">тема:</label>
+      <input type="text" id="theme" name="subject" required />
+      <label for="message">сообщение:</label>
+      <input type="text" id="message" name="html" required />
+      <button type="submit">Отправить</button>
+    </form>
+    <script>
+      const fInput = document.getElementById("email1");
+      const sInput = document.getElementById("email2");
+    </script>
+  </body>
+</html>
