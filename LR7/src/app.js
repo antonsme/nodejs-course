@@ -1,35 +1,29 @@
-const http = require("http")
-const fs = require("fs")
-const path = require("path")
+const http = require("http");
+const path = require("path");
+const { staticFile, mimeTypes } = require("./models/m07-01");
 
+const PORT = 3500;
+const STATIC_DIR = path.join(__dirname, "../public/static");
 
-const {staticFile , mimeTypes} = require("./models/m07-01")
-
-const PORT = 3500
-
-
-
-http.createServer((reg, res) => {
-
-    const url = reg.url
-
-
-    if (reg.url == "/" && reg.method == "GET") {
-        staticFile(res, "/htmls/index.html", ".html")
-    }
-    else {
-        const extname = String(path.extname(url)).toLowerCase()
-        if (extname in mimeTypes) {
-            staticFile(res, url, extname)
-        } else {
-            res.statusCode = 404
-            res.end()
-        }
+http
+  .createServer((req, res) => {
+    if (req.method !== "GET") {
+      res.statusCode = 405;
+      res.end("405 Method Not Allowed");
+      return;
     }
 
+    const urlPath = req.url === "/" ? "/htmls/index.html" : req.url;
+    const extname = path.extname(urlPath).toLowerCase();
+    const filePath = path.join(STATIC_DIR, urlPath);
 
-}).listen(PORT, () => {
-    console.log(`server is working on ${PORT}`)
-})
-
-
+    if (extname in mimeTypes) {
+      staticFile(res, filePath, extname);
+    } else {
+      res.statusCode = 404;
+      res.end("404 Not Found");
+    }
+  })
+  .listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
